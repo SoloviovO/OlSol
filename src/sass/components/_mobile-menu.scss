@@ -1,0 +1,130 @@
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.menu-toggle--open {
+  margin-left: auto;
+
+  @include tablet {
+    margin-left: 450px;
+  }
+}
+
+.menu-toggle__icon {
+  fill: $primary-text-color;
+  transition: fill $main-transition;
+}
+
+.menu-toggle__icon {
+  .menu-toggle:hover &,
+  .menu-toggle:focus & {
+    fill: $accent-color;
+  }
+}
+
+.menu-container {
+  padding: 48px 40px;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 230px;
+  height: 450px;
+  background-color: $secondary-bg-color;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+
+  transform: translateX(100%);
+  transition: transform $main-transition, visibility $main-transition,
+    opacity $main-transition;
+
+  @include tablet {
+    height: 380px;
+  }
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-toggle--close {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu__nav {
+  margin-bottom: auto;
+}
+
+.mobile-menu__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.mobile-menu__link {
+  display: block;
+
+  color: $primary-text-color;
+  @include font(500, 32px, 40px);
+
+  transition: color $main-transition;
+
+  &:hover,
+  &:focus,
+  &--current {
+    color: $accent-color;
+  }
+}
+
+.mobile-contact__list {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.mobile-contact__link {
+  cursor: pointer;
+}
+
+.mobile-contact__icon {
+  fill: $primary-bg-color;
+  transition: fill $main-transition;
+}
+
+.mobile-contact__link .mobile-contact__icon {
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+}

@@ -3,6 +3,21 @@
     <a href="./index.html" class="logo__header">
       <img src="./images/logo.png" alt="Logo site" width="70" height="70" />
     </a>
+    <button
+      type="button"
+      class="menu-toggle menu-toggle--open js-open-menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        class="menu-toggle__icon"
+        width="40"
+        height="40"
+        aria-label="Перемикач мобільного меню"
+      >
+        <use href="./images/sprite.svg#icon-burger"></use>
+      </svg>
+    </button>
     <div class="header__list">
       <nav class="header-nav">
         <ul class="header-nav__list">
@@ -26,7 +41,12 @@
     </div>
     <ul class="header-contact__list">
       <li class="header-contact__item">
-        <a class="header-contact__link" href="https://github.com/SoloviovO"
+        <a
+          class="header-contact__link"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Github"
+          href="https://github.com/SoloviovO"
           ><svg class="header-contact__icon" width="40" height="40">
             <use href="./images/sprite.svg#icon-github"></use></svg
         ></a>
@@ -34,6 +54,9 @@
       <li class="header-contact__item">
         <a
           class="header-contact__link"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Linkedin"
           href="https://www.linkedin.com/in/oleksandr-soloviov/"
           ><svg class="header-contact__icon" width="45" height="45">
             <use href="./images/sprite.svg#icon-linkedin"></use></svg
