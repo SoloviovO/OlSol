@@ -1,4 +1,180 @@
+.hero {
+  padding: 0;
+
+  @include desktop {
+    margin-top: -120px;
+  }
+}
+
+#copy {
+  display: none;
+}
+
+canvas {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-title {
   height: 800px;
-  color: white;
+  color: wheat;
+}
+
+.hero__info {
+  margin-top: -50px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  @include tablet {
+    margin-top: -150px;
+
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 20px;
+  }
+  @include desktop {
+    margin-top: -320px;
+
+    gap: 150px;
+  }
+}
+
+.hero__img {
+  width: 300px;
+  @include tablet {
+    width: 450px;
+    height: auto;
+  }
+  @include desktop {
+    width: 600px;
+  }
+}
+
+.hero-box {
+  padding: 20px 0;
+  width: 240px;
+
+  @include tablet {
+    padding: 80px 0;
+    width: 240px;
+  }
+
+  @include desktop {
+    padding: 80px 0;
+    width: 350px;
+  }
+}
+
+.hero-box__text {
+  margin-bottom: 20px;
+
+  @include font(500, 24px, 30px);
+
+  color: $primary-text-color;
+
+  @include tablet {
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  @include desktop {
+    margin-bottom: 20px;
+    margin-left: -40px;
+
+    @include font(500, 42px, 48px);
+  }
+}
+
+.hero-box__title {
+  margin-bottom: 15px;
+  padding: 5px 10px;
+
+  @include font(500, 24px, 30px);
+
+  background-color: $secondary-bg-color;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: $accent-color;
+
+  @include desktop {
+    @include font(500, 36px, 42px);
+  }
+}
+
+.hero-box__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-box__subtitle {
+  margin-bottom: 30px;
+
+  width: 20ch;
+  overflow: hidden;
+  color: $primary-text-color;
+
+  @include font(500, 24px, 30px);
+  white-space: nowrap;
+  border-right: 4px solid $accent-color;
+  animation: expand-contract 15s steps(20) infinite,
+    flashin-border 0.75s step-start infinite;
+
+  @include desktop {
+    @include font(500, 36px, 42px);
+  }
+}
+
+@keyframes flashin-border {
+  0%,
+  100% {
+    border-color: $accent-color;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes expand-contract {
+  0%,
+  100% {
+    width: 0;
+  }
+  25%,
+  75% {
+    width: 20ch;
+  }
+}
+
+.hero-resume {
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 140px;
+  height: 40px;
+  border-radius: 30px;
+
+  background-color: transparent;
+  border: 2px solid $primary-text-color;
+  transition: border $main-transition;
+}
+
+.hero-resume:hover {
+  border: 2px solid $accent-color;
+}
+
+.hero-resume__icon {
+  fill: $primary-text-color;
+}
+
+.hero-resume__text {
+  @include font(500, 18px, 24px);
+
+  color: $primary-text-color;
 }

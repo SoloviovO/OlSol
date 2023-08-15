@@ -1,5 +1,33 @@
 <section class="hero section" id="home">
-  <div class="hero-container container">
-    <p class="hero-title">Hello!</p>
+  <div class="container">
+    <canvas id="scene"></canvas>
+    <input id="copy" type="text" value="olsol" />
+    <div class="hero__info">
+      <img
+        class="hero__img"
+        src="./images/hero-img.png"
+        alt="Hero"
+        width="600"
+      />
+      <div class="hero-box">
+        <p class="hero-box__text">Hello! A am</p>
+        <h1 class="hero-box__title">Oleksandr Soloviov</h1>
+        <div class="hero-box__wrapper">
+          <p class="hero-box__subtitle">Full Stack developer</p>
+        </div>
+        <a
+          class="hero-resume"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Resume"
+          href="https://drive.google.com/file/d/18eaeayipLXfTNaQBDB0FuB6Tw2DYqUoe/view?usp=sharing"
+        >
+          <svg class="hero-resume__icon" width="25" height="25">
+            <use href="./images/sprite.svg#icon-link"></use>
+          </svg>
+          <p class="hero-resume__text">Resume</p></a
+        >
+      </div>
+    </div>
   </div>
 </section>
