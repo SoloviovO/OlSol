@@ -87,7 +87,13 @@ function initScene() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.font = '400 ' + ww / 5 + 'px sans-serif';
+  if (ww < 768) {
+    ctx.font = '400 ' + ww / 3 + 'px sans-serif';
+  } else if (ww < 1250) {
+    ctx.font = '400 ' + ww / 5 + 'px sans-serif';
+  } else {
+    ctx.font = '400 ' + ww / 5 + 'px sans-serif';
+  }
   ctx.textAlign = 'center';
   ctx.fillText(copy.value, ww / 2, wh / 2);
 
@@ -130,8 +136,19 @@ function render(a) {
 
 copy.addEventListener('keyup', initScene);
 window.addEventListener('resize', initScene);
-window.addEventListener('mousemove', onMouseMove);
-window.addEventListener('touchmove', onTouchMove);
+// window.addEventListener('mousemove', onMouseMove);
+// window.addEventListener('touchmove', onTouchMove);
 window.addEventListener('touchend', onTouchEnd);
+window.addEventListener('mousemove', function (e) {
+  if (!e.target.classList.contains('no-pointer-events')) {
+    onMouseMove(e);
+  }
+});
+
+window.addEventListener('touchmove', function (e) {
+  if (!e.target.classList.contains('no-pointer-events')) {
+    onTouchMove(e);
+  }
+});
 initScene();
 requestAnimationFrame(render);
