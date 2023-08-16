@@ -22,6 +22,7 @@ canvas {
 .hero__animation {
   display: flex;
   justify-content: center;
+  touch-action: none;
 }
 
 .hero__info {
