@@ -9,6 +9,8 @@ var colors = ['#034466', '#f55449', '#034466', '#8e7970'];
 
 var copy = document.querySelector('#copy');
 
+var isTouchActive = false;
+
 var ww, wh;
 
 function Particle(x, y) {
@@ -62,20 +64,27 @@ Particle.prototype.render = function () {
 };
 
 function onMouseMove(e) {
-  var rect = canvas.getBoundingClientRect();
-  mouse.x = e.clientX - rect.left;
-  mouse.y = e.clientY - rect.top;
+  if (!isTouchActive) {
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  }
 }
 
 function onTouchMove(e) {
-  if (e.touches.length > 0) {
+  if (e.touches.length > 0 && !isTouchActive) {
     var rect = canvas.getBoundingClientRect();
     mouse.x = e.touches[0].clientX - rect.left;
     mouse.y = e.touches[0].clientY - rect.top;
   }
 }
 
-function onTouchEnd(e) {
+function onTouchStart() {
+  isTouchActive = true;
+}
+
+function onTouchEnd() {
+  isTouchActive = false;
   mouse.x = -9999;
   mouse.y = -9999;
 }
@@ -150,5 +159,8 @@ window.addEventListener('touchmove', function (e) {
     onTouchMove(e);
   }
 });
+
+window.addEventListener('touchstart', onTouchStart);
+window.addEventListener('mousedown', onTouchStart);
 initScene();
 requestAnimationFrame(render);
