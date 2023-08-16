@@ -5,13 +5,15 @@ var canvas = document.querySelector('#scene'),
   mouse = { x: 0, y: 0 },
   radius = 0.6;
 
-var colors = ['#034466', '#f55449', '#034466', '#8e7970'];
+var colors = ['#034466', '#f55449', '#f55449', '#8e7970'];
 
 var copy = document.querySelector('#copy');
 
-var isTouchActive = false;
-
 var ww, wh;
+
+var isAnimationInitialized = false;
+
+var isTouching = false;
 
 function Particle(x, y) {
   this.x = Math.random() * ww;
@@ -64,75 +66,78 @@ Particle.prototype.render = function () {
 };
 
 function onMouseMove(e) {
-  if (!isTouchActive) {
-    var rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  }
+  var rect = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - rect.left;
+  mouse.y = e.clientY - rect.top;
 }
 
 function onTouchMove(e) {
-  if (e.touches.length > 0 && !isTouchActive) {
+  if (isTouching && e.touches.length > 0) {
     var rect = canvas.getBoundingClientRect();
     mouse.x = e.touches[0].clientX - rect.left;
     mouse.y = e.touches[0].clientY - rect.top;
+
+    e.preventDefault();
   }
 }
 
 function onTouchStart() {
-  isTouchActive = true;
+  isTouching = true;
 }
 
 function onTouchEnd() {
-  isTouchActive = false;
+  isTouching = false;
   mouse.x = -9999;
   mouse.y = -9999;
 }
 
 function initScene() {
-  var rect = canvas.getBoundingClientRect();
-  ww = canvas.width = rect.width;
-  wh = canvas.height = rect.height;
+  if (!isAnimationInitialized) {
+    var rect = canvas.getBoundingClientRect();
+    ww = canvas.width = rect.width;
+    wh = canvas.height = rect.height;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (ww < 768) {
-    ctx.font = '400 ' + ww / 3 + 'px sans-serif';
-  } else if (ww < 1250) {
-    ctx.font = '400 ' + ww / 5 + 'px sans-serif';
-  } else {
-    ctx.font = '400 ' + ww / 5 + 'px sans-serif';
-  }
-  ctx.textAlign = 'center';
-  ctx.fillText(copy.value, ww / 2, wh / 2);
+    if (ww < 738) {
+      ctx.font = '400 ' + ww / 3 + 'px sans-serif';
+    } else if (ww < 1250) {
+      ctx.font = '400 ' + ww / 4 + 'px sans-serif';
+    } else {
+      ctx.font = '400 ' + ww / 5 + 'px sans-serif';
+    }
+    ctx.textAlign = 'center';
+    ctx.fillText(copy.value, ww / 2, wh / 2);
 
-  var data = ctx.getImageData(0, 0, ww, wh).data;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.globalCompositeOperation = 'screen';
+    var data = ctx.getImageData(0, 0, ww, wh).data;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'screen';
 
-  particles = [];
+    particles = [];
 
-  var particleDensity, particleSize;
+    var particleDensity, particleSize;
 
-  if (ww < 768) {
-    particleDensity = 150;
-    particleSize = 1.5;
-  } else if (ww < 1250) {
-    particleDensity = 150;
-    particleSize = 2;
-  } else {
-    particleDensity = 200;
-    particleSize = 1.5;
-  }
+    if (ww < 738) {
+      particleDensity = 110;
+      particleSize = 2;
+    } else if (ww < 1250) {
+      particleDensity = 200;
+      particleSize = 1.5;
+    } else {
+      particleDensity = 200;
+      particleSize = 1.5;
+    }
 
-  for (var i = 0; i < ww; i += Math.round(ww / particleDensity)) {
-    for (var j = 0; j < wh; j += Math.round(ww / particleDensity)) {
-      if (data[(i + j * ww) * 4 + 3] > 150) {
-        particles.push(new Particle(i, j, particleSize));
+    for (var i = 0; i < ww; i += Math.round(ww / particleDensity)) {
+      for (var j = 0; j < wh; j += Math.round(ww / particleDensity)) {
+        if (data[(i + j * ww) * 4 + 3] > 150) {
+          particles.push(new Particle(i, j, particleSize));
+        }
       }
     }
+    amount = particles.length;
+    isAnimationInitialized = true;
   }
-  amount = particles.length;
 }
 
 function render(a) {
@@ -145,9 +150,9 @@ function render(a) {
 
 copy.addEventListener('keyup', initScene);
 window.addEventListener('resize', initScene);
-// window.addEventListener('mousemove', onMouseMove);
-// window.addEventListener('touchmove', onTouchMove);
+window.addEventListener('touchstart', onTouchStart);
 window.addEventListener('touchend', onTouchEnd);
+
 window.addEventListener('mousemove', function (e) {
   if (!e.target.classList.contains('no-pointer-events')) {
     onMouseMove(e);
@@ -160,7 +165,5 @@ window.addEventListener('touchmove', function (e) {
   }
 });
 
-window.addEventListener('touchstart', onTouchStart);
-window.addEventListener('mousedown', onTouchStart);
 initScene();
 requestAnimationFrame(render);
