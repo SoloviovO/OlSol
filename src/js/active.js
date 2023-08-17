@@ -53,7 +53,6 @@ fetch(apiUrl, {
       data.data.user.contributionsCollection.contributionCalendar;
 
     const contributionsAll = contributions.totalContributions;
-    console.log(contributionsAll);
 
     const weeks = contributions.weeks;
 
