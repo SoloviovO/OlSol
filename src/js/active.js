@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const username = 'SoloviovO';
-const accessToken = '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';
+const accessToken = process.env.ACCESS_TOKEN;
+
 const apiUrl = 'https://api.github.com/graphql';
 
 const query = `
