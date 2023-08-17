@@ -1,5 +1,5 @@
 const username = 'SoloviovO';
-const accessToken = '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';
+const accessToken = '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';
 const apiUrl = 'https://api.github.com/graphql';
 
 const query = `
