@@ -21,10 +21,9 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Load GitHub token
-        run: echo "ACCESS_TOKEN=$ACCESS_TOKEN" >> $GITHUB_ENV
-
       - name: Deploy 🚀
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
