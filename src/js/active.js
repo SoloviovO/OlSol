@@ -1,3 +1,4 @@
+import axios from 'axios';
 require('dotenv').config();
 
 const username = 'SoloviovO';
@@ -39,15 +40,18 @@ const monthNames = [
   'Dec',
 ];
 
-fetch(apiUrl, {
-  method: 'POST',
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ query }),
-})
-  .then(response => response.json())
+axios
+  .post(
+    apiUrl,
+    { query },
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  )
+  .then(response => response.data)
   .then(data => {
     const contributions =
       data.data.user.contributionsCollection.contributionCalendar;

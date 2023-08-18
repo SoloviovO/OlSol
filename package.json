@@ -18,6 +18,7 @@
     "url": "https://github.com/SoloviovO/OlSol/issues"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "modern-normalize": "^1.1.0"
   },
