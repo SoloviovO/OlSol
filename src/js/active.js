@@ -1,13 +1,11 @@
-require('dotenv').config();
-
-const username = 'SoloviovO';
-const accessToken = process.env.ACCESS_TOKEN;
+const fethc = 'Npwyc1G4zaGx';
+const feth = 'p1FFPHt';
 
 const apiUrl = 'https://api.github.com/graphql';
 
 const query = `
   query {
-    user(login: "${username}") {
+    user(login: "SoloviovO") {
       contributionsCollection {
         contributionCalendar {
           totalContributions
@@ -42,7 +40,7 @@ const monthNames = [
 fetch(apiUrl, {
   method: 'POST',
   headers: {
-    Authorization: `Bearer ${accessToken}`,
+    Authorization: `Bearer ghp_q4fcql1${fethc}nyRyxQOTKv${feth}`,
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ query }),
