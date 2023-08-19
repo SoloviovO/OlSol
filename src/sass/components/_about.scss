@@ -205,3 +205,27 @@
     max-height: 18px;
   }
 }
+
+.day-contribution {
+  position: relative;
+  cursor: pointer;
+}
+
+@include desktop {
+  .day-contribution:hover::after {
+    content: attr(data-contribution-count) ' contributions on ' attr(data-date);
+    white-space: pre-wrap;
+    position: absolute;
+    bottom: 150%;
+    left: -50%;
+    transform: translateX(-50%);
+    background-color: $secondary-bg-color;
+    color: $primary-text-color;
+    width: 180px;
+    height: auto;
+    padding: 10px 5px;
+    border-radius: 4px;
+    @include font(500, 12px, 15px);
+    z-index: 20;
+  }
+}

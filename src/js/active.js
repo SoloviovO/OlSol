@@ -101,7 +101,15 @@ axios
         const contributionCount = contributionDay
           ? contributionDay.contributionCount
           : 0;
+        const date = contributionDay ? contributionDay.date : '';
+        const formattedDate = formatDate(date);
         const td = document.createElement('td');
+        if (contributionCount === 0) {
+          td.dataset.contributionCount = 'No';
+        } else {
+          td.dataset.contributionCount = contributionCount;
+        }
+        td.dataset.date = formattedDate;
         let contributionColor;
         if (contributionCount < 1) {
           contributionColor = 0;
@@ -119,6 +127,17 @@ axios
       }
 
       contributionTable.appendChild(row);
+    }
+
+    function formatDate(inputDate) {
+      const date = new Date(inputDate);
+      const options = {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      };
+      return date.toLocaleDateString('en-US', options);
     }
   })
   .catch(error => {
