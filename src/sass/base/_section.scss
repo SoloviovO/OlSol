@@ -1,11 +1,11 @@
 .section {
-  padding: 40px 0;
+  padding: 100px 0 20px 0;
 
   @include tablet {
-    padding: 60px 0;
+    padding: 110px 0 0 0;
   }
 
   @include desktop {
-    padding: 80px 0;
+    padding: 120px 0 20px 0;
   }
 }
