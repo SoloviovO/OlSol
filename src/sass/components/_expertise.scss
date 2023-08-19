@@ -1,88 +1,95 @@
-.skills-contribution {
-  margin: 0 auto;
+.skills__title {
+  margin-bottom: 250px;
 
-  width: 290px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-
-  @include mobile {
-    width: 450px;
-  }
-
-  @include tablet {
-    width: 738px;
-  }
-
-  @include desktop {
-    width: 1200px;
-    gap: 15px;
-  }
-}
-
-.skills-contribution__title {
-  margin-bottom: 15px;
-
-  @include font(500, 18px, 24px);
+  @include font(500, 24px, 30px);
   color: $primary-text-color;
   text-align: center;
 
   @include tablet {
-    @include font(500, 24px, 30px);
+    margin-bottom: 60px;
+
+    @include font(500, 28px, 36px);
   }
 
   @include desktop {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 
-    @include font(500, 30px, 36px);
+    @include font(500, 42px, 48px);
   }
 }
 
-.skills-contribution__table {
-  border-collapse: separate;
-  border-spacing: 1px;
+.skills__title::before {
+  margin-right: 15px;
 
-  @include mobile {
-    border-spacing: 2px;
-  }
+  display: inline-block;
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-right: 3px solid $primary-text-color;
+  border-bottom: 3px solid $primary-text-color;
+  transform: rotate(-45deg) skew(15deg, 15deg);
 
   @include tablet {
-    border-spacing: 3px;
+    margin-right: 30px;
+
+    width: 18px;
+    height: 18px;
   }
 
   @include desktop {
-    border-spacing: 4px;
+    width: 25px;
+    height: 25px;
+    border-right: 4px solid $primary-text-color;
+    border-bottom: 4px solid $primary-text-color;
   }
 }
 
-.skills-contribution__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.skills__box {
+  @media screen and (max-width: 767px) {
+    margin: 0 -200px;
+    transform: rotate(90deg);
+  }
 }
 
-.skills-contribution__box {
+.skills-boxes {
+  transform: translateY(150%);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform $first-transition, visibility $first-transition,
+    opacity $first-transition;
+}
+
+.skills-boxes.show {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.skills-boxeses {
+  transform: translateY(100%);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform $second-transition, visibility $second-transition,
+    opacity $second-transition;
+}
+
+.skills-boxeses.show {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.skills__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 45px 35px;
 
   @include tablet {
-    gap: 10px;
+    gap: 40px;
   }
-}
-
-.skills-contribution__text {
-  @include font(500, 10px, 12px);
-
-  color: $primary-text-color;
-
-  @include mobile {
-    @include font(500, 12px, 15px);
-  }
-  @include tablet {
-    @include font(500, 15px, 18px);
+  @include desktop {
+    gap: 65px;
   }
 }
 
@@ -90,120 +97,98 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5px;
 
-  @include mobile {
-    gap: 2px;
-  }
+  width: 75px;
+  height: 75px;
+  transform: rotate(45deg);
+  transform: scale(1);
+  transition: transform $main-transition, box-shadow $main-transition;
+  cursor: pointer;
 
   @include tablet {
-    gap: 4px;
+    width: 75px;
+    height: 75px;
   }
 
   @include desktop {
-    gap: 5px;
+    width: 120px;
+    height: 120px;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1) rotate(45deg);
+    box-shadow: 0 0 20px $accent-color;
   }
 }
 
-.skills-box__cube,
-.day-contribution {
-  width: 4.4px;
-  height: 4.4px;
-  border-radius: 1px;
+.skills-box__border {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $primary-bg-color;
+  border-radius: 10px;
 
-  @include mobile {
-    width: 6.6px;
-    height: 6.6px;
-    border-radius: 1.5px;
+  &::after {
+    position: absolute;
+    content: '';
+    top: calc(-1 * 2px);
+    left: calc(-1 * 2px);
+    z-index: -1;
+    width: calc(100% + 2px * 2);
+    height: calc(100% + 2px * 2);
+    background: linear-gradient(
+      60deg,
+      $primary-bg-color,
+      $accent-color,
+      $secondary-bg-color,
+      $accent-color
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * 5px);
+    animation: moveGradient 4s alternate infinite;
   }
+}
 
-  @include tablet {
-    width: 11px;
-    height: 11px;
-    border-radius: 2px;
-  }
-
-  @include desktop {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-.color-0,
-.skills-box__cube--first {
-  background-color: #d0d7de;
-}
-.color-1,
-.skills-box__cube--second {
-  background-color: #4ac26b;
-}
-.color-2,
-.skills-box__cube--third {
-  background-color: #1a7f37;
-}
-.color-3,
-.skills-box__cube--fourth {
-  background-color: #116329;
-}
-.color-4,
-.skills-box__cube--fifth {
-  background-color: #003d16;
-}
-
-.shared-style {
-  @include font(500, 4.4px, 4.4px);
-
-  color: $primary-text-color;
+.skills-box__border {
   display: flex;
-  align-items: center;
-  font-weight: bold;
-
-  @include mobile {
-    @include font(500, 6.6px, 6.6px);
-  }
-
-  @include tablet {
-    @include font(500, 10px, 11px);
-  }
-
-  @include desktop {
-    @include font(500, 15px, 18px);
-  }
-}
-
-.month-name {
-  @extend .shared-style;
   justify-content: center;
-  max-width: 4.4px;
+  align-items: center;
+}
 
-  @include mobile {
-    max-width: 6.6px;
-  }
+.skills-box__img {
+  width: 50px;
+  transform: rotate(-135deg);
+  transform: scale(1);
+  transition: transform $main-transition;
 
   @include tablet {
-    max-width: 11px;
+    transform: rotate(-45deg);
   }
 
   @include desktop {
-    max-width: 18px;
+    width: 90px;
   }
 }
 
-.day-of-week {
-  @extend .shared-style;
-  justify-content: flex-start;
-  max-height: 4.4px;
-
-  @include mobile {
-    max-height: 6.6px;
-  }
+.skills-box:hover .skills-box__img,
+.skills-box:focus .skills-box__img {
+  transform: scale(0.85) rotate(-135deg);
 
   @include tablet {
-    max-height: 11px;
+    transform: scale(0.85) rotate(-45deg);
   }
+}
 
-  @include desktop {
-    max-height: 18px;
+.project {
+  @media screen and (max-width: 767px) {
+    margin-top: 200px;
   }
 }

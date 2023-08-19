@@ -4,15 +4,17 @@
   left: 0;
   width: 100%;
   z-index: 1;
-  background: transparent;
+  background-color: transparent;
   min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color $main-transition;
 }
 
 .header-scroll {
   background-color: $transparent-bg-color;
+  backdrop-filter: blur(10px);
 }
 
 .header__container {

@@ -1,6 +1,10 @@
 .hero {
   padding: 0;
 
+  @include tablet {
+    margin-top: -20px;
+  }
+
   @include desktop {
     margin-top: -120px;
   }
@@ -34,7 +38,7 @@ canvas {
   align-items: center;
   gap: 10px;
   @include tablet {
-    margin-top: -150px;
+    margin-top: -170px;
 
     justify-content: flex-start;
     flex-direction: row;
