@@ -6,3 +6,5 @@ import './js/mobile-menu';
 import './js/hero';
 import './js/active';
 import './js/skillsAnimation';
+import './js/slick.min';
+import './js/slider';
