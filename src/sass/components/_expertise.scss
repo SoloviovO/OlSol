@@ -1,4 +1,5 @@
-.skills__title {
+.skills__title,
+.projects__title {
   margin-bottom: 250px;
 
   @include font(500, 24px, 30px);
@@ -18,7 +19,12 @@
   }
 }
 
-.skills__title::before {
+.projects__title {
+  margin-bottom: 40px;
+}
+
+.skills__title::before,
+.projects__title::before {
   margin-right: 15px;
 
   display: inline-block;
@@ -184,11 +190,5 @@
 
   @include tablet {
     transform: scale(0.85) rotate(-45deg);
-  }
-}
-
-.project {
-  @media screen and (max-width: 767px) {
-    margin-top: 200px;
   }
 }
