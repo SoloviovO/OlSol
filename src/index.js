@@ -8,3 +8,4 @@ import './js/active';
 import './js/skillsAnimation';
 import './js/slick.min';
 import './js/slider';
+import './js/projects';
