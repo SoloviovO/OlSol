@@ -1,0 +1,92 @@
+.footer {
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid $accent-color;
+  background-color: $primary-bg-color;
+}
+
+.footer__container {
+  padding: 20px 15px;
+  height: 100%;
+}
+
+.footer__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__text {
+  @include font(500, 16px, 24px);
+  color: $primary-text-color;
+  @include tablet {
+    @include font(500, 20px, 30px);
+  }
+
+  @include desktop {
+    @include font(500, 24px, 30px);
+  }
+}
+
+.footer-contact__list {
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+
+  @include tablet {
+    gap: 25px;
+  }
+}
+
+.footer-contact__link {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact__icon {
+  width: 35px;
+  height: 35px;
+  fill: $secondary-bg-color;
+  transition: fill $main-transition;
+  @include tablet {
+    width: 35px;
+    height: 35px;
+  }
+
+  @include desktop {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.footer-contact__link:hover .footer-contact__icon,
+.footer-contact__link:focus .footer-contact__icon {
+  fill: $accent-color;
+}
+
+.footer-contact__name {
+  display: none;
+
+  @include tablet {
+    display: block;
+    color: $primary-text-color;
+    transition: color $main-transition;
+    @include font(500, 18px, 24px);
+  }
+
+  @include desktop {
+    @include font(500, 24px, 30px);
+  }
+}
+
+.footer-contact__link:hover .footer-contact__name,
+.footer-contact__link:focus .footer-contact__name {
+  color: $accent-color;
+}

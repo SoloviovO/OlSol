@@ -34,11 +34,11 @@ projects.map(item => {
       <p class="slider__description">${item.description}</p>
       <div class="slider__buttons">
         <a class="slider__btn" target="_blank" rel="noopener noreferrer nofollow" aria-label="Resume" href="${item.github}">
-            <img src="${item.demoIcon}" alt="Icon" width="25" heiht="20" />
+            <img src="${item.demoIcon}" alt="Icon" width="20" heiht="20" />
           <p class="slider__text">GitHub</p>
         </a>
         <a class="slider__btn" target="_blank" rel="noopener noreferrer nofollow" aria-label="Resume" href="${item.demo}">
-            <img src="${item.githubIcon}" alt="Icon" width="20" heiht="20" />
+            <img src="${item.githubIcon}" alt="Icon" width="25" heiht="20" />
           <p class="slider__text">Demo</p>
         </a>
       </div>
