@@ -3,6 +3,7 @@ import projects from './projects.json';
 const projectsRef = document.querySelector('.js-projects');
 
 projects.map(item => {
+  console.log(item.photoFirst);
   const slide = document.createElement('div');
   slide.className = 'slider__item';
   slide.innerHTML = `
@@ -37,7 +38,7 @@ projects.map(item => {
           <p class="slider__text">GitHub</p>
         </a>
         <a class="slider__btn" target="_blank" rel="noopener noreferrer nofollow" aria-label="Resume" href="${item.demo}">
-            <img src="${item.githubIcon}" alt="Icon" width="25" heiht="20" />
+            <img src="${item.githubIcon}" alt="Icon" width="20" heiht="20" />
           <p class="slider__text">Demo</p>
         </a>
       </div>
