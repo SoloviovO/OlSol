@@ -1,5 +1,6 @@
 .skills__title,
-.projects__title {
+.projects__title,
+.about__title {
   margin-bottom: 250px;
 
   @include font(500, 24px, 30px);
@@ -19,12 +20,14 @@
   }
 }
 
-.projects__title {
+.projects__title,
+.about__title {
   margin-bottom: 40px;
 }
 
 .skills__title::before,
-.projects__title::before {
+.projects__title::before,
+.about__title::before {
   margin-right: 15px;
 
   display: inline-block;
