@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "builds": [{ "src": "npm ci && npm run build", "use": "@vercel/static" }],
+  "routes": [],
+  "output": "dist"
+}
