@@ -3,7 +3,6 @@ import projects from './projects.json';
 const projectsRef = document.querySelector('.js-projects');
 
 projects.map(item => {
-  console.log(item.photoFirst);
   const slide = document.createElement('div');
   slide.className = 'slider__item';
   slide.innerHTML = `
