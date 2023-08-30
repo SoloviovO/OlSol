@@ -9,3 +9,4 @@ import './js/skillsAnimation';
 import './js/slick.min';
 import './js/slider';
 import './js/projects';
+import './js/cube';
