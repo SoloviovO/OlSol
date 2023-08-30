@@ -10,3 +10,4 @@ import './js/slick.min';
 import './js/slider';
 import './js/projects';
 import './js/cube';
+import './js/btn-up';

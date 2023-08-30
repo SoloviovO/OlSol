@@ -1,0 +1,21 @@
+#go-top {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-color: $secondary-bg-color;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 50% 50%;
+  background-image: url(../images/to-up.png);
+  background-size: 60%;
+  border-radius: 50%;
+  transition: background-color $main-transition;
+}
+
+#go-top:hover {
+  background-color: $accent-color;
+}
