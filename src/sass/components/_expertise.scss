@@ -4,20 +4,18 @@
 .contact__title {
   margin-bottom: 250px;
 
-  @include font(500, 24px, 30px);
+  @include font(600, 30px, 36px);
   color: $primary-text-color;
   text-align: center;
 
   @include tablet {
     margin-bottom: 60px;
-
-    @include font(500, 28px, 36px);
   }
 
   @include desktop {
     margin-bottom: 80px;
 
-    @include font(500, 42px, 48px);
+    @include font(600, 42px, 48px);
   }
 }
 

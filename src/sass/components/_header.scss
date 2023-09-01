@@ -78,7 +78,6 @@
   }
 
   &:hover::after,
-  &:focus::after,
   &--current::after {
     @include desktop {
       position: absolute;
@@ -96,8 +95,7 @@
 }
 
 .header-nav__link--current,
-.header-nav__link:hover,
-.header-nav__link:focus {
+.header-nav__link:hover {
   color: $accent-color;
 }
 

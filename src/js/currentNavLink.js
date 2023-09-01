@@ -19,13 +19,6 @@ function handleHashChange() {
   setActiveMenuItem(targetId);
 }
 
-window.addEventListener('hashchange', handleHashChange);
-
-window.addEventListener('load', () => {
-  const initialTargetId = location.hash || '#home';
-  setActiveMenuItem(initialTargetId);
-});
-
 anchorLinks.forEach(link => {
   link.addEventListener('click', event => {
     const targetId = link.getAttribute('href');
@@ -42,6 +35,36 @@ anchorLinks.forEach(link => {
       if (targetId) {
         history.pushState({}, '', targetId);
         handleHashChange();
+      }
+    }
+  });
+});
+
+window.addEventListener('hashchange', handleHashChange);
+
+window.addEventListener('load', () => {
+  const initialTargetId = location.hash || '#home';
+  setActiveMenuItem(initialTargetId);
+});
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
+
+  anchorLinks.forEach(link => {
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const sectionHeight = targetElement.clientHeight;
+      const offsetTop = targetId === '#home' ? 0 : targetElement.offsetTop;
+
+      const sectionVisibility =
+        offsetTop >= scrollPosition - sectionHeight / 2 &&
+        offsetTop <= scrollPosition + windowHeight - sectionHeight / 2;
+
+      if (sectionVisibility) {
+        setActiveMenuItem(targetId);
       }
     }
   });

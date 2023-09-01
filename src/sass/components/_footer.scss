@@ -18,11 +18,8 @@
 }
 
 .footer__text {
-  @include font(500, 16px, 24px);
+  @include font(500, 18px, 24px);
   color: $primary-text-color;
-  @include tablet {
-    @include font(500, 20px, 30px);
-  }
 
   @include desktop {
     @include font(500, 24px, 30px);
@@ -56,14 +53,20 @@
   height: 35px;
   fill: $secondary-bg-color;
   transition: fill $main-transition;
-  @include tablet {
-    width: 35px;
-    height: 35px;
-  }
 
   @include desktop {
     width: 45px;
     height: 45px;
+  }
+}
+
+.footer-contact__icon--linkedin {
+  width: 40px;
+  height: 40px;
+
+  @include desktop {
+    width: 50px;
+    height: 50px;
   }
 }
 
