@@ -43,7 +43,7 @@
   right: 0;
 
   width: 230px;
-  height: 450px;
+  height: 430px;
   background-color: $secondary-bg-color;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -56,7 +56,7 @@
     opacity $main-transition;
 
   @include tablet {
-    height: 380px;
+    height: 360px;
   }
 }
 
@@ -89,7 +89,7 @@
   display: block;
 
   color: $primary-text-color;
-  @include font(500, 32px, 40px);
+  @include font(500, 30px, 36px);
 
   transition: color $main-transition;
 
