@@ -70,5 +70,17 @@
     "photoFourth": "https://i.ibb.co/j86b41G/24.jpg",
     "demoIcon": "https://i.ibb.co/NNpySn8/github.png",
     "githubIcon": "https://i.ibb.co/MD73YyY/icons8-monitor-96.png"
+  },
+  {
+    "title": "WebStudio",
+    "description": "WebStudio is a web development project using SASS, BEM, HTML, and CSS to create stylish and responsive websites",
+    "github": "https://github.com/SoloviovO/goit-markup-hw-08",
+    "demo": "https://soloviovo.github.io/goit-markup-hw-08/",
+    "photoFirst": "https://i.ibb.co/Nj8HrLr/1.jpg",
+    "photoSecond": "https://i.ibb.co/gM37xqm/2.jpg",
+    "photoThird": "https://i.ibb.co/N2ZgcJk/3.jpg",
+    "photoFourth": "https://i.ibb.co/K7bXdCJ/4.jpg",
+    "demoIcon": "https://i.ibb.co/NNpySn8/github.png",
+    "githubIcon": "https://i.ibb.co/MD73YyY/icons8-monitor-96.png"
   }
 ]
